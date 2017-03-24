@@ -1,6 +1,5 @@
 # biggis-tomcat
-[![Build Status](https://travis-ci.org/biggis-project/biggis-tomcat.svg?branch=master)][Travis]
-[Travis]: https://travis-ci.org/biggis-project/biggis-tomcat
+[![Build Status](https://api.travis-ci.org/biggis-project/biggis-tomcat.svg)](https://travis-ci.org/biggis-project/biggis-tomcat)
 Docker container for Apache Tomcat
 
 ## Prerequisites
