@@ -1,10 +1,10 @@
-FROM biggis/base:java8-jre-alpine
+FROM biggis/base:oraclejava8-jre
 
 MAINTAINER wipatrick
 
 # Tomcat Version
 ARG TOMCAT_MAJOR=8
-ARG TOMCAT_VERSION=8.0.36
+ARG TOMCAT_VERSION=8.5.16
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -34,6 +34,9 @@ RUN set -x && \
 
 # Configuration
 COPY conf/tomcat-users.xml /opt/tomcat/conf/tomcat-users.xml
+COPY conf/server.xml /opt/tomcat/conf/server.xml
+# Allows remote access to manager UI (Tomcat 8.5.x)
+COPY conf/context.xml /opt/tomcat/webapps/manager/META-INF/context.xml
 COPY startup.sh /opt/tomcat/startup.sh
 
 # Set max file size
@@ -42,9 +45,6 @@ COPY startup.sh /opt/tomcat/startup.sh
 # Set environment
 ENV CATALINA_HOME /opt/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
-
-# Expose web port
-EXPOSE 8080
 
 WORKDIR $CATALINA_HOME
 # Launch Tomcat on startup

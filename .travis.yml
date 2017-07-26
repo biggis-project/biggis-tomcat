@@ -5,7 +5,7 @@ services:
 
 env:
   global:
-    - IMG=biggis/tomcat:8.0.36
+    - IMG=biggis/tomcat:8.5.16
 
 install:
   #login to dockerhub

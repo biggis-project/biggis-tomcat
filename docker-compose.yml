@@ -2,10 +2,10 @@ version: '2.1'
 services:
 
   tomcat:
-    image: biggis/tomcat:8.0.36
+    image: biggis/tomcat:8.5.16
     hostname: tomcat
     ports:
-      - "8080:8080"
+      - "9090:9090"
     environment:
       USER_ID: ${USER_ID-1000}
       USER_NAME: tomcat
